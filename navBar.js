@@ -1,8 +1,6 @@
 // Evénements navBar
-$(".navbar-nav > li").each(function(index) {
-    $(this).on("click", function(){
-        updateNavBar($(this));
-    });
+$(".nav-item").on("click", function(){
+    updateNavBar($(this));
 });
 
 function updateNavBar(navElement) {
