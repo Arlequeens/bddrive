@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body class="container">
+<body>
 
     <!-- Barre de navigation -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light user-select-none">
+    <nav class="container-fluid navbar navbar-expand-md navbar-light bg-light user-select-none">
         <a class="navbar-brand" href="#">BD Drive</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,19 +37,11 @@
         </div>
     </nav>
 
-    <!-- Message de bienvenue -->
-    <div id="bienvenue" class="jumbotron">
-        <h1 class="display-4">Bienvenue sur notre site de vente de BD !</h1>
-        <p class="lead">Découvrez plus de 5000 BD</p>
-        <hr class="my-4">
-        <button type="button" class="btn btn-dark btn-lg">Parcourir le catalogue</button>
-    </div>
-
     <!-- Formulaire de connexion -->
-    <div id="connexion" class="mt-5">
+    <div id="connexion" class="container mt-5">
         <h1 class="text-center h3 ">Se connecter</h1>
         <h2 class="text-center h5"><small>Saisissez votre e-mail et votre mot de passe pour vous identifier</small></h1>
-        <form  class="col-md-6 offset-md-3 bg-light p-3">
+        <form  class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 bg-light p-3 rounded">
             <div class="form-group">
                 <label for="email">Identifiant</label>
                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="E-mail">
@@ -69,9 +61,9 @@
     </div>
 
     <!-- Formulaire d'inscription -->
-    <div id="inscription" class="mt-5">
+    <div id="inscription" class="container mt-5">
         <h1 class="text-center h3">Créer un compte</h1>
-        <form class="col-md-6 offset-md-3 bg-light p-3 rounded">
+        <form class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 bg-light p-3 rounded">
             <div class="form-group">
                 <label for="nom">Nom</label>
                 <input type="text" class="form-control" id="nom" placeholder="Nom">
