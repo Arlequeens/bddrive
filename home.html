@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body>
-
+<body class="container-fluid px-0">
     <!-- Barre de navigation -->
-    <nav class="container-fluid navbar navbar-expand-md navbar-light bg-light user-select-none">
+    <nav class="navbar navbar-expand-md navbar-light bg-light user-select-none">
         <a class="navbar-brand" href="#">BD Drive</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,12 +36,12 @@
         </div>
     </nav>
 
-    <section class="container">
-        <div class="row">
-            
+    <section id="section" class="container pt-3">
+        <div class="d-flex flex-column flex-lg-row h-100 no-gutters">
+
             <!-- Panier -->
-            <aside class="col-lg-3 mt-3 d-none d-lg-block">
-                <div class="card">
+            <aside class="col-lg-3 flex-shrink-1 mr-lg-3 mb-3">
+                <div class="card h-100">
                     <div class="card-header d-flex justify-content-between align-items-center bg-transparent pb-0 pb-lg-3">
                         <h1 class="h6 text-uppercase font-weight-normal mb-0">Panier <br class="d-none d-lg-inline"></h1>
                         <a href="#">Voir le détail</a>
@@ -54,10 +53,10 @@
             </aside>
 
             <!-- Contenu principal -->
-            <article class="col-lg-9">
+            <article class="col-lg-9 d-flex flex-column h-100 ml-lg-3 overflow-auto">
 
                 <!-- Message de bienvenue -->
-                <div class="jumbotron mb-2 mt-3">
+                <div class="jumbotron mb-3">
                     <h1 class="display-4">Bienvenue sur notre site de vente de BD !</h1>
                     <p class="lead">Découvrez plus de 5000 BD</p>
                     <hr class="my-4">
@@ -65,7 +64,7 @@
                 </div>
 
                 <!-- Selection 1 -->
-                <div class="card my-3">
+                <div class="card mb-3">
                     <div class="card-header d-flex justify-content-between align-items-center bg-transparent pb-0">
                         <h1 class="h6 text-uppercase font-weight-normal mb-0">Les meilleures ventes</h1>
                         <a href="#">Plus</a>
@@ -125,7 +124,7 @@
                 </div>
 
                 <!-- Selection 2 -->
-                <div class="card my-3">
+                <div class="card mb-3">
                     <div class="card-header d-flex justify-content-between align-items-center bg-transparent pb-0">
                         <h1 class="h6 text-uppercase font-weight-normal mb-0">Les nouveautés</h1>
                         <a href="#">Plus</a>
@@ -186,6 +185,7 @@
             </article>
         </div>
     </section>
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>

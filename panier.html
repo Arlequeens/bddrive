@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body>
-
+<body class="container-fluid px-0">
     <!-- Barre de navigation -->
-    <nav class="container-fluid navbar navbar-expand-md navbar-light bg-light user-select-none">
+    <nav class="navbar navbar-expand-md navbar-light bg-light user-select-none">
         <a class="navbar-brand" href="#">BD Drive</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -37,23 +36,30 @@
         </div>
     </nav>
 
-    <section class="container">
-        <!-- Titre -->
+    <section id="section-panier-detaille" class="container pt-3">
+
+        <!-- Bouton retour -->
         <div class="d-flex align-items-center my-2">
             <i class="fa fa-angle-left fa-lg"></i>
             <span class="ml-1">Retour</span>
         </div>
+
+        <!-- Titre -->
         <h1 class="text-md-center mb-3 h3">Panier</h1>
-        <!-- Liste articles et Total-->
-        <article class="row d-md-flex flex-md-row-reverse">
-            <div class="col-md-6 mb-3">
+
+        <div class="d-flex flex-column flex-lg-row flex-lg-row-reverse h-100 no-gutters">
+
+            <!-- Panier -->
+            <aside class="col-lg-6 flex-shrink-1 ml-lg-3 mb-3">
                 <div class="d-flex justify-content-between">
                     <p> Total (nb articles)</p>
                     <p>16.50€</p>
                 </div>
                 <button type="button" class="col btn btn-success">Passer la commande</button>
-            </div>
-            <div class="col-md-6">
+            </aside>
+
+            <!-- Contenu principal -->
+            <article class="col-lg-6 d-flex flex-column h-100 mr-lg-3 overflow-auto">
                 <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-4">
@@ -174,9 +180,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </article>
+            </article>
+        </div>
     </section>
+
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
     integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
