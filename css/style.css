@@ -1,7 +1,15 @@
+/* body {
+    height: 100vh;
+} */
+
 .navbar-nav > li {
     cursor: pointer;
 }
 
 .card-header {
     height: 60px;
+}
+
+section {
+    height: calc(100vh - 56px);
 }
