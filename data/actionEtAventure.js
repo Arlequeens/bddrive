@@ -1,0 +1,9 @@
+var actionEtAventure = new Map();
+actionEtAventure.set("1", { idSerie: "54" });
+actionEtAventure.set("2", { idSerie: "55" });
+actionEtAventure.set("3", { idSerie: "56" });
+actionEtAventure.set("4", { idSerie: "57" });
+actionEtAventure.set("5", { idSerie: "58" });
+actionEtAventure.set("6", { idSerie: "59" });
+actionEtAventure.set("7", { idSerie: "60" });
+actionEtAventure.set("8", { idSerie: "61" });

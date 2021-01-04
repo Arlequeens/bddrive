@@ -1,0 +1,9 @@
+var nouveautes = new Map();
+nouveautes.set("1", { idSerie: "2" });
+nouveautes.set("2", { idSerie: "3" });
+nouveautes.set("3", { idSerie: "5" });
+nouveautes.set("4", { idSerie: "6" });
+nouveautes.set("5", { idSerie: "9" });
+nouveautes.set("6", { idSerie: "10" });
+nouveautes.set("7", { idSerie: "12" });
+nouveautes.set("8", { idSerie: "13" });

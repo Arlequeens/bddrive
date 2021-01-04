@@ -1,0 +1,9 @@
+var coupsDeCoeurs = new Map();
+coupsDeCoeurs.set("1", { idSerie: "16" });
+coupsDeCoeurs.set("2", { idSerie: "17" });
+coupsDeCoeurs.set("3", { idSerie: "18" });
+coupsDeCoeurs.set("4", { idSerie: "22" });
+coupsDeCoeurs.set("5", { idSerie: "23" });
+coupsDeCoeurs.set("6", { idSerie: "24" });
+coupsDeCoeurs.set("7", { idSerie: "25" });
+coupsDeCoeurs.set("8", { idSerie: "26" });

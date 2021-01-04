@@ -1,0 +1,9 @@
+var romance = new Map();
+romance.set("1", { idSerie: "26" });
+romance.set("2", { idSerie: "27" });
+romance.set("3", { idSerie: "28" });
+romance.set("4", { idSerie: "29" });
+romance.set("5", { idSerie: "30" });
+romance.set("6", { idSerie: "31" });
+romance.set("7", { idSerie: "32" });
+romance.set("8", { idSerie: "33" });

@@ -1,0 +1,11 @@
+var humour = new Map();
+humour.set("1", { idSerie: "38" });
+humour.set("2", { idSerie: "39" });
+humour.set("3", { idSerie: "40" });
+humour.set("4", { idSerie: "41" });
+humour.set("5", { idSerie: "42" });
+humour.set("6", { idSerie: "43" });
+humour.set("7", { idSerie: "44" });
+humour.set("8", { idSerie: "45" });
+humour.set("9", { idSerie: "46" });
+humour.set("10", { idSerie: "47" });
