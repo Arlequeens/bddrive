@@ -1,0 +1,9 @@
+var sciencesFiction = new Map();
+series.set("1", { idSerie: "88" });
+series.set("2", { idSerie: "89" });
+series.set("3", { idSerie: "90" });
+series.set("4", { idSerie: "91" });
+series.set("5", { idSerie: "92" });
+series.set("6", { idSerie: "94" });
+series.set("7", { idSerie: "95" });
+series.set("8", { idSerie: "96" });

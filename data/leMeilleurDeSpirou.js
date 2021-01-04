@@ -1,0 +1,9 @@
+var leMeilleurDeSpirou = new Map();
+leMeilleurDeSpirou.set("1", { idSerie: "2" });
+leMeilleurDeSpirou.set("2", { idSerie: "5" });
+leMeilleurDeSpirou.set("3", { idSerie: "29" });
+leMeilleurDeSpirou.set("4", { idSerie: "83" });
+leMeilleurDeSpirou.set("5", { idSerie: "84" });
+leMeilleurDeSpirou.set("6", { idSerie: "85" });
+leMeilleurDeSpirou.set("7", { idSerie: "86" });
+leMeilleurDeSpirou.set("8", { idSerie: "87" });

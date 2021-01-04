@@ -1,0 +1,9 @@
+var jeunesse = new Map();
+jeunesse.set("1", { idSerie: "70" });
+jeunesse.set("2", { idSerie: "75" });
+jeunesse.set("3", { idSerie: "74" });
+jeunesse.set("4", { idSerie: "76" });
+jeunesse.set("5", { idSerie: "77" });
+jeunesse.set("6", { idSerie: "78" });
+jeunesse.set("7", { idSerie: "79" });
+jeunesse.set("8", { idSerie: "80" });

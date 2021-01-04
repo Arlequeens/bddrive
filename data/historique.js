@@ -1,0 +1,9 @@
+var historique = new Map();
+historique.set("1", { idSerie: "6" });
+historique.set("2", { idSerie: "9" });
+historique.set("3", { idSerie: "10" });
+historique.set("4", { idSerie: "12" });
+historique.set("5", { idSerie: "13" });
+historique.set("6", { idSerie: "16" });
+historique.set("7", { idSerie: "17" });
+historique.set("8", { idSerie: "18" });

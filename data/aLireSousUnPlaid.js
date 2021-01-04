@@ -1,0 +1,9 @@
+var aLireSousUnPlaid = new Map();
+aLireSousUnPlaid.set("1", { idSerie: "105" });
+aLireSousUnPlaid.set("2", { idSerie: "112" });
+aLireSousUnPlaid.set("3", { idSerie: "107" });
+aLireSousUnPlaid.set("4", { idSerie: "108" });
+aLireSousUnPlaid.set("5", { idSerie: "110" });
+aLireSousUnPlaid.set("6", { idSerie: "111" });
+aLireSousUnPlaid.set("7", { idSerie: "113" });
+aLireSousUnPlaid.set("8", { idSerie: "114" });

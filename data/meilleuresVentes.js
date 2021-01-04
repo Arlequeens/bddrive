@@ -1,0 +1,9 @@
+var meilleuresVentes = new Map();
+meilleuresVentes.set("1", { idSerie: "27" });
+meilleuresVentes.set("2", { idSerie: "28" });
+meilleuresVentes.set("3", { idSerie: "29" });
+meilleuresVentes.set("4", { idSerie: "30" });
+meilleuresVentes.set("5", { idSerie: "31" });
+meilleuresVentes.set("6", { idSerie: "32" });
+meilleuresVentes.set("7", { idSerie: "33" });
+meilleuresVentes.set("8", { idSerie: "34" });
