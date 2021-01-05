@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-4.5.3-dist\css\bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Panier simplifié</title>
+    <title>Home</title>
 </head>
 <body class="container-fluid px-0">
 
@@ -43,84 +43,94 @@
         <div class="d-flex flex-column flex-lg-row h-100 no-gutters">
 
             <!-- Panier -->
-            <aside class="col-lg-3 flex-shrink-1 mr-lg-3 mb-3 mb-lg-0">
+            <aside class="accordion col-lg-3 flex-shrink-1 mr-lg-3 mb-3 mb-lg-0" id="panierSimplifie">
                 <div class="card h-100">
-                    <div class="card-header d-flex justify-content-between align-items-center bg-transparent pb-0">
+                    <div class="card-header d-flex justify-content-between align-items-center bg-transparent pb-0" id="heading">
                         <h1 class="h6 text-uppercase font-weight-normal mb-0">Panier</h1>
-                        <a href="panier.html">Voir le détail</a>
+                        <button class="btn btn-default d-lg-none" data-toggle="collapse" data-target="#collapsePanier" aria-expanded="true" aria-controls="collapse">
+                            <i class="fa fa-angle-down fa-lg d-none"></i>
+                            <i class="fa fa-angle-up fa-lg"></i>
+                        </button>
+                        <a href="panier.html" class="d-none d-lg-block">Voir le détail</a>
                     </div>
-                    <div class="card-body pt-3 overflow-auto">
-                        <div class="row flex-nowrap flex-lg-wrap">
-                            <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
-                                <div class="row no-gutters">
-                                    <div class="col-lg-6">
-                                        <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
+                    <div id="collapsePanier" class="collapse show overflow-auto" aria-labelledby="heading" data-parent="#panierSimplifie">
+                        <div class="card-body pt-3">
+                            <!-- <p class="font-weight-bold">Votre panier est vide</p> -->
+                            <div class="row flex-nowrap flex-lg-wrap">
+                                <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-6">
+                                            <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="card-body d-none d-lg-block">
+                                                <h1 class="card-title h5">Titre</h2>
+                                                <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
+                                                <p class="card-text">12,99 €</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <div class="card-body d-none d-lg-block">
-                                            <h1 class="card-title h5">Titre</h2>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                            <p class="card-text">12,99 €</p>
+                                </div>
+                                <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-6">
+                                            <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="card-body d-none d-lg-block">
+                                                <h1 class="card-title h5">Titre</h2>
+                                                <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
+                                                <p class="card-text">12,99 €</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-6">
+                                            <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="card-body d-none d-lg-block">
+                                                <h1 class="card-title h5">Titre</h2>
+                                                <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
+                                                <p class="card-text">12,99 €</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-6">
+                                            <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="card-body d-none d-lg-block">
+                                                <h1 class="card-title h5">Titre</h2>
+                                                <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
+                                                <p class="card-text">12,99 €</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-6">
+                                            <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="card-body d-none d-lg-block">
+                                                <h1 class="card-title h5">Titre</h2>
+                                                <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
+                                                <p class="card-text">12,99 €</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
-                                <div class="row no-gutters">
-                                    <div class="col-lg-6">
-                                        <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card-body d-none d-lg-block">
-                                            <h1 class="card-title h5">Titre</h2>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                            <p class="card-text">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
-                                <div class="row no-gutters">
-                                    <div class="col-lg-6">
-                                        <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card-body d-none d-lg-block">
-                                            <h1 class="card-title h5">Titre</h2>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                            <p class="card-text">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
-                                <div class="row no-gutters">
-                                    <div class="col-lg-6">
-                                        <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card-body d-none d-lg-block">
-                                            <h1 class="card-title h5">Titre</h2>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                            <p class="card-text">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card col-3 col-lg-12 border-0 mb-3 px-1">
-                                <div class="row no-gutters">
-                                    <div class="col-lg-6">
-                                        <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="card-body d-none d-lg-block">
-                                            <h1 class="card-title h5">Titre</h2>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                            <p class="card-text">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
+                        <div class="card-footer text-right bg-transparent d-lg-none">
+                            <a href="panier.html">Voir le détail</a>
                         </div>
                     </div>
                 </div>
@@ -128,6 +138,14 @@
 
             <!-- Contenu principal -->
             <article class="col-lg-9 d-flex flex-column h-100 ml-lg-3 overflow-auto">
+
+                <!-- Message de bienvenue -->
+                <div class="jumbotron py-3 mb-3">
+                    <h1 class="display-4">Bienvenue sur notre site de vente de BD !</h1>
+                    <p class="lead">Découvrez plus de 5000 BD</p>
+                    <hr class="my-4">
+                    <button type="button" class="btn btn-dark btn-lg">Parcourir le catalogue</button>
+                </div>
 
                 <!-- Selection 1 -->
                 <div class="card mb-3">
@@ -264,7 +282,7 @@
                         </div>
                     </div>
                 </div>
-
+                
             </article>
         </div>
     </section>
@@ -278,6 +296,7 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/56f1ea0a9f.js"></script>
     <script src="js/navBar.js"></script>
+    <script src="js/collapse.js"></script>
     <script src="js/navigation.js"></script>
 </body>
 </html>

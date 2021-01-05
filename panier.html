@@ -19,7 +19,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
-                <li class="nav-item nav-link active" data-toggle="collapse" data-target=".navbar-collapse.show" id="navSelections">
+                <li class="nav-item nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="navSelections">
                     <i class="fa fa-home"></i>
                     <span>Sélections</span>
                 </li>
@@ -27,7 +27,7 @@
                     <i class="fa fa-search"></i>
                     <span>Catalogue</span>
                 </li>
-                <li class="nav-item nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" id="navMonPanier">
+                <li class="nav-item nav-link active" data-toggle="collapse" data-target=".navbar-collapse.show" id="navMonPanier">
                     <i class="fa fa-shopping-cart"></i>
                     <span>Mon panier</span>
                 </li>
@@ -42,7 +42,7 @@
     <section id="section-panier-detaille" class="container pt-3">
 
         <!-- Bouton retour -->
-        <div class="d-flex align-items-center my-2">
+        <div onclick="goBack()" class="d-flex align-items-center my-2 ">
             <i class="fa fa-angle-left fa-lg"></i>
             <span class="ml-1">Retour</span>
         </div>
@@ -52,7 +52,7 @@
 
         <div class="d-flex flex-column flex-lg-row flex-lg-row-reverse h-100 no-gutters">
 
-            <!-- Panier -->
+            <!-- Total et Passer la commande -->
             <aside class="col-lg-6 flex-shrink-1 ml-lg-3 mb-3">
                 <div class="d-flex justify-content-between">
                     <p> Total (nb articles)</p>
@@ -61,7 +61,7 @@
                 <button type="button" class="col btn btn-success">Passer la commande</button>
             </aside>
 
-            <!-- Contenu principal -->
+            <!-- Liste d'articles -->
             <article class="col-lg-6 d-flex flex-column h-100 mr-lg-3 overflow-auto">
                 <div class="card mb-3">
                     <div class="row no-gutters">
@@ -227,5 +227,6 @@
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/56f1ea0a9f.js"></script>
     <script src="js/navBar.js"></script>
+    <script src="js/navigation.js"></script>
 </body>
 </html>
