@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-    $('#listeBD').empty();
+    $('.liste-BD').empty();
     for (var [idAlbum, album] of albums.entries()) {
-        $('#listeBD').append(cloneAlbum(idAlbum, album));
+        $('.liste-BD').append(cloneAlbum(idAlbum, album));
 
         (function(cle) {
-            $('#listeBD').children().last().click(function() {
+            $('.liste-BD').children().last().click(function() {
                     $(location).attr('href',"article.html");
                     sessionStorage.setItem("idBD", cle);
             });
