@@ -76,26 +76,26 @@
                 </div>
 
                 <!-- combo box -->
-                <div class="dropdown">
-                    <div class="d-flex justify-content-between mb-3">
-                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButtonFiltrer"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Filter
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Série</a>
-                            <a class="dropdown-item" href="#">Auteur</a>
+                <form>
+                    <div class="d-flex justify-content-between">
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Filtrer par :</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Aucun</option>
+                                <option>Auteur</option>
+                                <option>Série</option>
+                            </select>
                         </div>
-                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButtonTrier"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Trier
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Par ordre alphabétique</a>
-                            <a class="dropdown-item" href="#">Par prix</a>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Trier par :</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Ordre alphabétique</option>
+                                <option>Prix croissant</option>
+                                <option>Prix décroissant</option>
+                            </select>
                         </div>
                     </div>
-                </div>
+                </form>
 
                 <!-- Liste BD -->
                 <div class="row px-2" id="listeBD">
