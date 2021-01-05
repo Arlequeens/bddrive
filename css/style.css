@@ -14,6 +14,14 @@
     height: calc(100vh - 145px);
 }
 
+#section-recherche {
+    height: calc(100vh - 145px);
+}
+
 .display-4 {
     font-size: 2rem;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

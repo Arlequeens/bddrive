@@ -28,6 +28,10 @@ $(document).ready(function () {
         document.location.href = "catalogue.html";
     });
 
+    $("#btnToutesBD").click(function () {
+        document.location.href = "toutesLesBD.html";
+    });
+
 });
 
 function goBack() {
