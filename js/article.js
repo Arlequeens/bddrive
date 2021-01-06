@@ -33,22 +33,26 @@ $(document).ready(function () {
     }
 
 
-    // var old = localStorage.getItem('panier');
-    // if (old === null) {
-    //     var arr = [item]; //Create ARRAY
-    //     localStorage.setItem('panier', JSON.stringify(arr));
-    // } else {
-    //     old = JSON.parse(old);
-    //     localStorage.setItem('panier', JSON.stringify(old.concat(item)));
-    // }
+    $("#btnAjoutPanier").click(function () {
+        
+        var panierLocal = localStorage.getItem('panierBD');
+        if (panierLocal === null) {
 
+            panierLocal = idAlbum + ":1,";
+            localStorage.setItem('panierBD',panierLocal);
+        }
+        else {
 
-    // var idAlbum = sessionStorage.getItem("idBD");
+            // Transformation du panierLlocal en un tableau
+            var tabPanier = toTabPanierLocal(panierLocal);
 
-    // var old = localStorage.getItem('Panier',idAlbum);
-    // $("#btnAjoutPanier").click(function () {
+            // Ajout au de l'album au panier
+            ajoutPanier(idAlbum, tabPanier);
 
-    //     localStorage.setItem('Panier',idAlbum);
-    // });
+            // Génère la valeur du localStorage panierLocal
+            panierLocal = generePanierLocal(tabPanier);
+            localStorage.setItem('panierBD',panierLocal);
+        }
+    });
 
 });

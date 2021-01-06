@@ -58,12 +58,12 @@ function cloneAlbumVignette (album) {
 
     return   '<div class="card col-3 col-lg-2 border-0 px-1 px-lg-2">'
             +'<img src="'+ srcImage +'" class="card-img rounded" alt="">'
-                +'<div class="card-body p-0">'
-                    +'<h1 class="card-title h6">'+ titre +'</h2>'
-                    // +'<h2 class="card-subtitle mb-2 text-muted h6">'+ auteur +'</h2>'
-                    // +'<p class="card-text">'+ prix +'</p>'
-                +'</div>'
-            +'</div>'
+            +'   <div class="card-body p-0">'
+            +'        <h1 class="card-title h6">'+ titre +'</h2>'
+            // +'        <h2 class="card-subtitle mb-2 text-muted h6">'+ auteur +'</h2>'
+            // +'        <p class="card-text">'+ prix +'</p>'
+            +'    </div>'
+            +'</div>';
 }
 
 // Concaténation de la source de l'image
@@ -78,4 +78,46 @@ function sourceImage(album) {
     src += album.titre.replaceAll(regExp , '') + ".jpg";
 
     return src;
+}
+
+function toTabPanierLocal(panierLocal) {
+
+    var tabPanier = [];
+    var pairs = panierLocal.split(",");
+    for (i in pairs) {
+        if(pairs[i] !== "") {
+            tabPanier.push(pairs[i].split(":"));
+        }
+    }
+
+    return tabPanier;
+}
+
+function generePanierLocal(tabPanier) {
+    var pairs = [];
+    if (tabPanier.lenght !== 0) {
+        for (i in tabPanier) {
+            pairs.push(tabPanier[i].join(':'));
+        }
+    }
+    return pairs.join(',');
+}
+
+function ajoutPanier(idAlbum, tabPanier) {
+    
+    var alreadyExist = false;
+    for (i in tabPanier) {
+
+        // Incrémente le nombre d'article si l'article existe déjà
+        if(tabPanier[i][0] === idAlbum) {
+            var nbreArticle = parseInt(tabPanier[i][1]);
+            nbreArticle += 1;
+            tabPanier[i][1] = nbreArticle.toString();
+            alreadyExist = true;
+        }
+    }
+    if(!alreadyExist) {
+        var pair = [idAlbum, "1"];
+        tabPanier.push(pair);
+    }
 }
