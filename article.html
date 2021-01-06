@@ -70,15 +70,15 @@
 
                     <!--Ajout image-->
                     <div class="col-lg-6 pr-lg-2">
-                        <img class="img-fluid rounded" src="images/albums/Arkezone-01-Le dôme.jpg">
+                        <img class="img-fluid rounded" id="imageAlbum" src="images/albums/Arkezone-01-Le dôme.jpg">
                     </div>
 
                     <div class="col-lg-6 pl-lg-2 d-flex flex-column justify-content-between">
 
                         <!-- Titre et auteur -->
                         <div>
-                            <h1>Spirou, Tome 2, Connection</h1>
-                            <p>Par Hervé Le Tellier</p>
+                            <h1 id="titreAlbum"></h1>
+                            <p id="auteurAlbum"></p>
                         </div>
 
                         <!-- Voir le résumé -->
@@ -91,7 +91,7 @@
                             <div class="d-flex justify-content-end">
                                 <p class="badge badge-success mb-1">En stock</p>
                             </div>
-                            <p class="text-right"><strong>16.50€</strong></p>
+                            <p class="text-right" id="prixAlbum"><strong></strong></p>
                             <button type="button" class="col btn btn-success" id="btnAjoutPanier">Ajouter au panier</button>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                         <a href="#">Plus</a>
                     </div>
                     <div class="card-body pt-3 overflow-auto">
-                        <div class="row flex-nowrap">
+                        <div class="row flex-nowrap liste-BD-vignette">
                             <div class="card col-3 col-lg-2 border-0 px-1 px-lg-2">
                                 <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
                                 <div class="card-body p-0">
@@ -180,6 +180,10 @@
         crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/56f1ea0a9f.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="data/albums.js"></script>
+    <script src="data/series.js"></script>
+    <script src="data/auteurs.js"></script>
+    <script src="js/catalogue.js"></script>
     <script src="js/article.js"></script>
 </body>
 

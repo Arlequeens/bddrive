@@ -50,6 +50,22 @@ function cloneAlbum(album) {
             +'</div>';
 }
 
+function cloneAlbumVignette (album) {
+    var titre = album.titre;
+    var auteur = auteurs.get(album.idAuteur).nom;
+    var prix = album.prix + "€";
+    var srcImage = sourceImage(album);
+
+    return   '<div class="card col-3 col-lg-2 border-0 px-1 px-lg-2">'
+            +'<img src="'+ srcImage +'" class="card-img rounded" alt="">'
+                +'<div class="card-body p-0">'
+                    +'<h1 class="card-title h6">'+ titre +'</h2>'
+                    // +'<h2 class="card-subtitle mb-2 text-muted h6">'+ auteur +'</h2>'
+                    // +'<p class="card-text">'+ prix +'</p>'
+                +'</div>'
+            +'</div>'
+}
+
 // Concaténation de la source de l'image
 // IN: album
 function sourceImage(album) {
