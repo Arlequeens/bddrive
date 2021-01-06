@@ -1,33 +1,45 @@
 $(document).ready(function () {
 
     var panierLocal = localStorage.getItem('panierBD');
-    var tabPanier = toTabPanierLocal(panierLocal);
+    var tabPanier = [];
+    if (panierLocal !== null) {
+        var tabPanier = toTabPanierLocal(panierLocal);
+    }
     var totalPrix = 0;
     var nbreArticleTotal = 0;
 
     $('article').empty();
-    for (i in tabPanier) {
+    if(tabPanier.length !== 0) {
+        var tabPanier = toTabPanierLocal(panierLocal);
+        for (i in tabPanier) {
 
-        // Récupère album et nombre d'article correspondant
-        var album = albums.get(tabPanier[i][0]);
-        var nbreArticle = tabPanier[i][1];
+            // Récupère album et nombre d'article correspondant
+            var album = albums.get(tabPanier[i][0]);
+            var nbreArticle = tabPanier[i][1];
 
-        // Incrémente le nombre d'article total du panier
-        nbreArticleTotal += parseInt(nbreArticle);
+            // Incrémente le nombre d'article total du panier
+            nbreArticleTotal += parseInt(nbreArticle);
 
-        // Incrémente le prix total du panier
-        totalPrix += parseFloat(album.prix);
+            // Incrémente le prix total du panier
+            totalPrix += parseFloat(album.prix);
 
-        // Affiche l'album
-        $('article').append(cloneArticlePanier(album, nbreArticle));
+            // Affiche l'album
+            $('article').append(cloneArticlePanier(album, nbreArticle));
 
-        // $('article').children().last().click( function () {
+            // $('article').children().last().click( function () {
 
-        // });
+            // });
+        }
+        $("#prixTotal").html(totalPrix.toFixed(2) + "€");
+        $("#nbreArticles").html(nbreArticleTotal + " article(s)");
+    }
+    else {
+        $("#prixTotal").empty();
+        $("#nbreArticles").html("0 article");
+        $('article').append("<p>Votre panier est vide</p>");
     }
 
-    $("#prixTotal").html(totalPrix.toFixed(2) + "€")
-    $("#nbreArticles").html(nbreArticleTotal + " article(s)")
+    
 
 });
 
@@ -52,16 +64,16 @@ function cloneArticlePanier (album, nbreArticle) {
             +'                    <p class="col-5 mb-0">'+ prix +' €</p>'
             +'                    <div class="col-5 pl-0">'
             +'                        <div class="input-group input-group-sm">'
-            +'                            <div class="input-group-prepend">'
-            +'                                <span class="input-group-text">-</span>'
+            +'                            <div class="input-group-prepend cursor-pointer">'
+            +'                                <span class="input-group-text ">-</span>'
             +'                            </div>'
             +'                            <input type="text" class="form-control text-center" placeholder="'+ nbreArticle +'">'
-            +'                            <div class="input-group-append">'
+            +'                            <div class="input-group-append cursor-pointer">'
             +'                               <span class="input-group-text">+</span>'
             +'                           </div>'
             +'                       </div>'
             +'                   </div>'
-            +'                   <i class="col-2 fa fa-trash fa-lg"></i>'
+            +'                   <i class="col-2 fa fa-trash fa-lg cursor-pointer"></i>'
             +'               </div>'
             +'           </div>'
             +'       </div>'
