@@ -14,12 +14,12 @@ $(document).ready(function () {
     $("#imageAlbum").attr("src", sourceImage(album));
 
     $('.liste-BD-vignette').empty();
-    // Recherche des albums de la même série
+    // Affichage des albums de la même série et abbonement au évenement
+    var albumMemeSerieExist = false;
     for (var [idAlbm, albm] of albums.entries()) {
         if (albm.idSerie == album.idSerie && idAlbum != idAlbm) {
+            albumMemeSerieExist = true;
 
-            // $("#memeSerie").html(album.titre);
-            //console.log(albm.titre);
             $('.liste-BD-vignette').append(cloneAlbumVignette(albm));
 
             // Abbonement à un évènement pour chaque BD
@@ -33,6 +33,9 @@ $(document).ready(function () {
             })(idAlbm);
         }
     }
+    // Si aucun album de la même série n'existe pas, affiche un message
+    if(!albumMemeSerieExist)
+        $('.liste-BD-vignette').append('<p class="ml-3">Pas d\'autre album disponible pour cette série</p>');
 
 
     $("#btnAjoutPanier").click(function () {

@@ -2,18 +2,23 @@ $(document).ready(function () {
 
     // Affichage de toutes les BD et génération des évenements pour chaque BD
     $('.liste-BD').empty();
-    for (var [idAlbum, album] of albums.entries()) {
-        $('.liste-BD').append(cloneAlbum(album));
+    for(var [idSerie, serie] of series.entries()) {
+        // Recherche des albums de la série
+        for (var [idAlbum, album] of albums.entries()) {
+            if (album.idSerie == idSerie) {
+                $('.liste-BD').append(cloneAlbum(album));
+                
+                // Abbonement à un évènement pour chaque BD
+                (function(cle) {
+                    $('.liste-BD').children().last().click(function() {
+                            $(location).attr('href',"article.html");
 
-        // Abbonement à un évènement pour chaque BD
-        (function(cle) {
-            $('.liste-BD').children().last().click(function() {
-                    $(location).attr('href',"article.html");
-
-                    // Enregistrement de la BD choisi dans le session storage
-                    sessionStorage.setItem("idBD", cle);
-            });
-        })(idAlbum);
+                            // Enregistrement de la BD choisi dans le session storage
+                            sessionStorage.setItem("idBD", cle);
+                    });
+                })(idAlbum);
+            }
+        }
     }
 
     // Affichage des BD du panier simplifié
