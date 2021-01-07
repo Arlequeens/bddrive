@@ -55,6 +55,7 @@ $(document).ready(function () {
             panierLocal = genereValeurPanierLocal(tabPanier);
             localStorage.setItem('panierBD',panierLocal);
         }
+        affichePanier();
     });
 
 });

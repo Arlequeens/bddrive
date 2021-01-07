@@ -16,6 +16,9 @@ $(document).ready(function () {
         })(idAlbum);
     }
 
+    // Affichage des BD du panier simplifié
+    $('.liste-BD-panier-simplifie').empty();
+
 });
 
 // Génération de la div pour une BD
@@ -54,7 +57,7 @@ function cloneAlbumVignette (album) {
     var titre = album.titre;
     var auteur = auteurs.get(album.idAuteur).nom;
     var prix = album.prix + "€";
-    var srcImage = sourceImage(album);
+    var srcImage = sourceImageMini(album);
 
     return   '<div class="card col-3 col-lg-2 border-0 px-1 px-lg-2">'
             +'<img src="'+ srcImage +'" class="card-img rounded cursor-pointer" alt="">'
@@ -66,12 +69,48 @@ function cloneAlbumVignette (album) {
             +'</div>';
 }
 
+function cloneAlbumPanierSimplifie (album) {
+    var titre = album.titre;
+    var auteur = auteurs.get(album.idAuteur).nom;
+    var prix = album.prix + "€";
+    var srcImage = sourceImageMini(album);
+
+    return   '<div class="card col-3 col-lg-12 border-0 mb-3 px-1">'
+            +'    <div class="row no-gutters">'
+            +'        <div class="col-lg-6">'
+            +'            <img src="'+ srcImage +'" class="card-img rounded" alt="">'
+            +'        </div>'
+            +'        <div class="col-lg-6">'
+            +'            <div class="card-body d-none d-lg-block">'
+            +'                <h1 class="card-title h5">'+ titre +'</h2>'
+            // +'                <h2 class="card-subtitle mb-2 text-muted h6">'+ auteur +'</h2>'
+            // +'                <p class="card-text">'+ prix +'</p>'
+            +'            </div>'
+            +'        </div>'
+            +'    </div>'
+            +'</div>';
+}
+
 // Concaténation de la source de l'image
 // IN: album
 function sourceImage(album) {
     var regExp = /[\?\!\'\.\$\:"]/g;
 
     var src = "images/albums/";
+    src += series.get(album.idSerie).nom.replaceAll(regExp , '') + "-";
+    if(album.numero.lenght == 1) src += "0";
+    src += album.numero + "-";
+    src += album.titre.replaceAll(regExp , '') + ".jpg";
+
+    return src;
+}
+
+// Concaténation de la source de l'image
+// IN: album
+function sourceImageMini(album) {
+    var regExp = /[\?\!\'\.\$\:"]/g;
+
+    var src = "images/albumsMini/";
     src += series.get(album.idSerie).nom.replaceAll(regExp , '') + "-";
     if(album.numero.lenght == 1) src += "0";
     src += album.numero + "-";

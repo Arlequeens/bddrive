@@ -1,58 +1,6 @@
 $(document).ready(function () {
 
-    var panierLocal = localStorage.getItem('panierBD');
-    var tabPanier = [];
-    if (panierLocal !== null) {
-        tabPanier = toTabPanierLocal(panierLocal);
-    }
-    var totalPrix = 0;
-    var nbreArticleTotal = 0;
-
-    $('article').empty();
-    if(tabPanier.length !== 0) {
-        for (i in tabPanier) {
-
-            // Récupère album et nombre d'article correspondant
-            var idAlbum = tabPanier[i][0];
-            var album = albums.get(idAlbum);
-            var nbreArticle = tabPanier[i][1];
-
-            // Incrémente le nombre d'article total du panier
-            nbreArticleTotal += parseInt(nbreArticle);
-
-            // Incrémente le prix total du panier
-            totalPrix += parseFloat(album.prix)*parseInt(nbreArticle);
-
-            // Affiche l'album
-            $('article').append(cloneArticlePanier(album, nbreArticle));
-
-            // Abonnement Bouton ajout article de l'album
-            // $(".plus-article").click(function () {
-
-            //     (function (id, elem) {
-            //         var nbArticle = parseInt(getArticleNbrePanier(id));
-            //         if(nbArticle < 99) {
-            //             nbArticle +=1;
-            //             setArticleNbrePanier(id, nbArticle);
-                        
-            //             // Mise à jour de l'affichage
-            //             elem.prev().attr("placeholder", nbArticle);
-            //             // maj prix dans div article
-            //             // maj PrixTotal page panier
-            //             // maj NbreArticleTotal page panier
-            //         }
-            //     })(idAlbum, $(this));
-            // });
-        }
-        $("#prixTotal").html(totalPrix.toFixed(2) + "€");
-        $("#nbreArticles").html(nbreArticleTotal + " article(s)");
-    }
-    else {
-        $("#prixTotal").empty();
-        $("#nbreArticles").html("0 article");
-        $('article').append("<p>Votre panier est vide</p>");
-    }
-    
+    affichePanier();
 });
 
 function cloneArticlePanier (album, nbreArticle) {
@@ -91,4 +39,63 @@ function cloneArticlePanier (album, nbreArticle) {
             +'       </div>'
             +'   </div>'
             +'</div>';
+}
+
+// Affiche les articles du panier simplifié et du Panier
+function affichePanier () {
+    var panierLocal = localStorage.getItem('panierBD');
+    var tabPanier = [];
+    if (panierLocal !== null) {
+        tabPanier = toTabPanierLocal(panierLocal);
+    }
+    var totalPrix = 0;
+    var nbreArticleTotal = 0;
+
+    $('#liste-BD-panier').empty();
+    $('.liste-BD-panier-simplifie').empty();
+    if(tabPanier.length !== 0) {
+        for (i in tabPanier) {
+
+            // Récupère album et nombre d'article correspondant
+            var idAlbum = tabPanier[i][0];
+            var album = albums.get(idAlbum);
+            var nbreArticle = tabPanier[i][1];
+
+            // Incrémente le nombre d'article total du panier
+            nbreArticleTotal += parseInt(nbreArticle);
+
+            // Incrémente le prix total du panier
+            totalPrix += parseFloat(album.prix)*parseInt(nbreArticle);
+
+            // Affiche l'album
+            $('#liste-BD-panier').append(cloneArticlePanier(album, nbreArticle));
+            $('.liste-BD-panier-simplifie').append(cloneAlbumPanierSimplifie(album));
+
+            // Abonnement Bouton ajout article de l'album
+            // $(".plus-article").click(function () {
+
+            //     (function (id, elem) {
+            //         var nbArticle = parseInt(getArticleNbrePanier(id));
+            //         if(nbArticle < 99) {
+            //             nbArticle +=1;
+            //             setArticleNbrePanier(id, nbArticle);
+                        
+            //             // Mise à jour de l'affichage
+            //             elem.prev().attr("placeholder", nbArticle);
+            //             // maj prix dans div article
+            //             // maj PrixTotal page panier
+            //             // maj NbreArticleTotal page panier
+            //         }
+            //     })(idAlbum, $(this));
+            // });
+        }
+        $("#prixTotal").html(totalPrix.toFixed(2) + "€");
+        $("#nbreArticles").html(nbreArticleTotal + " article(s)");
+    }
+    else {
+        $("#prixTotal").empty();
+        $("#nbreArticles").html("0 article");
+        $('#liste-BD-panier').append('<p>Votre panier est vide</p>');
+        $('.liste-BD-panier-simplifie').append('<p class="font-weight-bold mb-3 ml-3">Votre panier est vide</p>');
+    }
 }
