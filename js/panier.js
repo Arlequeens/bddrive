@@ -67,9 +67,29 @@ function affichePanier () {
             // Incrémente le prix total du panier
             totalPrix += parseFloat(album.prix)*parseInt(nbreArticle);
 
-            // Affiche l'album
+            // Affiche l'album dans le panier
             $('#liste-BD-panier').append(cloneArticlePanier(album, nbreArticle));
+            // Abbonement à un évènement pour chaque image de BD du panier
+            (function(cle) {
+                $('#liste-BD-panier').children().last().children().children().first().click(function() {
+                        $(location).attr('href',"article.html");
+
+                        // Enregistrement de la BD choisi dans le session storage
+                        sessionStorage.setItem("idBD", cle);
+                });
+            })(idAlbum);
+
+            // Affiche l'album dans le panier simplifie
             $('.liste-BD-panier-simplifie').append(cloneAlbumPanierSimplifie(album));
+            // Abbonement à un évènement pour chaque image de BD du panier simplifié
+            (function(cle) {
+                $('.liste-BD-panier-simplifie').children().last().children().children().first().click(function() {
+                        $(location).attr('href',"article.html");
+
+                        // Enregistrement de la BD choisi dans le session storage
+                        sessionStorage.setItem("idBD", cle);
+                });
+            })(idAlbum);
 
             // Abonnement Bouton ajout article de l'album
             // $(".plus-article").click(function () {
