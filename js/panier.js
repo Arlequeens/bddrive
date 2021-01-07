@@ -1,6 +1,21 @@
 $(document).ready(function () {
 
     affichePanier();
+
+    $("#btnValidationCommande").click(function () {
+        var connected = sessionStorage.getItem("userConnected");
+        if(connected != null && connected == "1") {
+            // Message de confirmation
+            alert("Votre commande a bien été prise en compte");
+
+            // Remise à zero du panier
+            localStorage.setItem('panierBD', "");
+
+            // Redirection vers la page d'accueil
+            $(location).attr('href',"home.html");
+        }
+        
+    });
 });
 
 function cloneArticlePanier (album, nbreArticle) {

@@ -21,11 +21,10 @@ function loginEtMdp() {
 
     if (userConnected) {
         sessionStorage.setItem("userConnected", "1");
+        sessionStorage.setItem("loginPOW", loginSaisi);
         window.history.back();
-        
     }
     else {
         $("#msgConnexionIncorrect").html("Identifiant ou mot de passe incorrect");
-
     }
 }

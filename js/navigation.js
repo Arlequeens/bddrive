@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+    // Si connecté, affichage du login
+    var login = sessionStorage.getItem("loginPOW");
+    if(login != null)
+    {
+        $("#navSeConnecter span").html(login);
+    }
+
     // Evènements navBar
     $(".nav-item").on("click", function(){
         updateNavBar($(this));
@@ -24,9 +31,13 @@ $(document).ready(function () {
         document.location.href = "panier.html";
     });
 
-    $("#navSeConnecter").click(function () {
-        document.location.href = "connexion.html";
-    });
+    // Si non connecter, abonnement du bouton se connecté
+    if(login == null)
+    {
+        $("#navSeConnecter").click(function () {
+            document.location.href = "connexion.html";
+        });
+    }
 
     $(".navbar-brand").click(function () {
         document.location.href = "home.html";
