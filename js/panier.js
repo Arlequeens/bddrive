@@ -3,31 +3,45 @@ $(document).ready(function () {
     var panierLocal = localStorage.getItem('panierBD');
     var tabPanier = [];
     if (panierLocal !== null) {
-        var tabPanier = toTabPanierLocal(panierLocal);
+        tabPanier = toTabPanierLocal(panierLocal);
     }
     var totalPrix = 0;
     var nbreArticleTotal = 0;
 
     $('article').empty();
     if(tabPanier.length !== 0) {
-        var tabPanier = toTabPanierLocal(panierLocal);
         for (i in tabPanier) {
 
             // Récupère album et nombre d'article correspondant
-            var album = albums.get(tabPanier[i][0]);
+            var idAlbum = tabPanier[i][0];
+            var album = albums.get(idAlbum);
             var nbreArticle = tabPanier[i][1];
 
             // Incrémente le nombre d'article total du panier
             nbreArticleTotal += parseInt(nbreArticle);
 
             // Incrémente le prix total du panier
-            totalPrix += parseFloat(album.prix);
+            totalPrix += parseFloat(album.prix)*parseInt(nbreArticle);
 
             // Affiche l'album
             $('article').append(cloneArticlePanier(album, nbreArticle));
 
-            // $('article').children().last().click( function () {
+            // Abonnement Bouton ajout article de l'album
+            // $(".plus-article").click(function () {
 
+            //     (function (id, elem) {
+            //         var nbArticle = parseInt(getArticleNbrePanier(id));
+            //         if(nbArticle < 99) {
+            //             nbArticle +=1;
+            //             setArticleNbrePanier(id, nbArticle);
+                        
+            //             // Mise à jour de l'affichage
+            //             elem.prev().attr("placeholder", nbArticle);
+            //             // maj prix dans div article
+            //             // maj PrixTotal page panier
+            //             // maj NbreArticleTotal page panier
+            //         }
+            //     })(idAlbum, $(this));
             // });
         }
         $("#prixTotal").html(totalPrix.toFixed(2) + "€");
@@ -38,9 +52,7 @@ $(document).ready(function () {
         $("#nbreArticles").html("0 article");
         $('article').append("<p>Votre panier est vide</p>");
     }
-
     
-
 });
 
 function cloneArticlePanier (album, nbreArticle) {
@@ -64,16 +76,16 @@ function cloneArticlePanier (album, nbreArticle) {
             +'                    <p class="col-5 mb-0">'+ prix +' €</p>'
             +'                    <div class="col-5 pl-0">'
             +'                        <div class="input-group input-group-sm">'
-            +'                            <div class="input-group-prepend cursor-pointer">'
-            +'                                <span class="input-group-text ">-</span>'
+            +'                            <div class="input-group-prepend cursor-pointer moins-article">'
+            +'                                <span class="input-group-text">-</span>'
             +'                            </div>'
-            +'                            <input type="text" class="form-control text-center" placeholder="'+ nbreArticle +'">'
-            +'                            <div class="input-group-append cursor-pointer">'
+            +'                            <input type="text" class="form-control text-center bg-transparent" disabled placeholder="'+ nbreArticle +'">'
+            +'                            <div class="input-group-append cursor-pointer plus-article">'
             +'                               <span class="input-group-text">+</span>'
-            +'                           </div>'
+            +'                            </div>'
             +'                       </div>'
             +'                   </div>'
-            +'                   <i class="col-2 fa fa-trash fa-lg cursor-pointer"></i>'
+            +'                   <i class="col-2 fa fa-trash fa-lg cursor-pointer suppr-article"></i>'
             +'               </div>'
             +'           </div>'
             +'       </div>'

@@ -5,9 +5,11 @@ $(document).ready(function () {
     var album = albums.get(idAlbum);
     console.log(album);
     var auteur = auteurs.get(album.idAuteur);
+    var serie = auteurs.get(album.idSerie);
 
     $("#titreAlbum").html(album.titre);
-    $("#auteurAlbum").html("Ecrit par " + auteur.nom);
+    $("#auteurAlbum").html(auteur.nom);
+    $("#serieAlbum").html(serie.nom);
     $("#prixAlbum").html(album.prix + " €");
     $("#imageAlbum").attr("src", sourceImage(album));
 
@@ -46,11 +48,11 @@ $(document).ready(function () {
             // Transformation du panierLlocal en un tableau
             var tabPanier = toTabPanierLocal(panierLocal);
 
-            // Ajout au de l'album au panier
+            // Ajout de l'album au panier
             ajoutPanier(idAlbum, tabPanier);
 
             // Génère la valeur du localStorage panierLocal
-            panierLocal = generePanierLocal(tabPanier);
+            panierLocal = genereValeurPanierLocal(tabPanier);
             localStorage.setItem('panierBD',panierLocal);
         }
     });

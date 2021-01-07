@@ -57,7 +57,7 @@ function cloneAlbumVignette (album) {
     var srcImage = sourceImage(album);
 
     return   '<div class="card col-3 col-lg-2 border-0 px-1 px-lg-2">'
-            +'<img src="'+ srcImage +'" class="card-img rounded" alt="">'
+            +'<img src="'+ srcImage +'" class="card-img rounded cursor-pointer" alt="">'
             +'   <div class="card-body p-0">'
             +'        <h1 class="card-title h6">'+ titre +'</h2>'
             // +'        <h2 class="card-subtitle mb-2 text-muted h6">'+ auteur +'</h2>'
@@ -80,6 +80,9 @@ function sourceImage(album) {
     return src;
 }
 
+
+///// PANIER ///////////////////////////
+
 function toTabPanierLocal(panierLocal) {
 
     var tabPanier = [];
@@ -89,11 +92,16 @@ function toTabPanierLocal(panierLocal) {
             tabPanier.push(pairs[i].split(":"));
         }
     }
-
     return tabPanier;
 }
 
-function generePanierLocal(tabPanier) {
+// Génère la valeur du localStorage panierLocal
+function majPanierLocal(tabPanier) {
+    panierLocal = genereValeurPanierLocal(tabPanier);
+    localStorage.setItem('panierBD',panierLocal);
+}
+
+function genereValeurPanierLocal(tabPanier) {
     var pairs = [];
     if (tabPanier.lenght !== 0) {
         for (i in tabPanier) {
@@ -120,4 +128,34 @@ function ajoutPanier(idAlbum, tabPanier) {
         var pair = [idAlbum, "1"];
         tabPanier.push(pair);
     }
+}
+
+function getArticleNbrePanier(idArticle) {
+    var panierLocal = localStorage.getItem('panierBD');
+    var tabPanier = toTabPanierLocal(panierLocal);
+    for (i in tabPanier) {
+        if (tabPanier[i][0] === idArticle.toString()) {
+            return tabPanier[i][1];
+        }
+    }
+}
+
+function setArticleNbrePanier(idArticle, nbArticle) {
+    var panierLocal = localStorage.getItem('panierBD');
+    var tabPanier = toTabPanierLocal(panierLocal);
+    for (i in tabPanier) {
+        if (tabPanier[i][0] === idArticle.toString()) {
+            tabPanier[i][1] = nbArticle;
+            break;
+        }
+    }
+    majPanierLocal(tabPanier);
+}
+
+function calculTotalPanier() {
+
+}
+
+function calculNbreArticleTotal() {
+    
 }
