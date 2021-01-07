@@ -6,15 +6,11 @@
     height: 60px;
 }
 
-#section {
+.section {
     height: calc(100vh - 56px);
 }
 
 #section-panier-detaille {
-    height: calc(100vh - 145px);
-}
-
-#section-recherche {
     height: calc(100vh - 145px);
 }
 
