@@ -78,17 +78,17 @@
                 <form>
                     <!-- Barre de recherche  -->
                     <div class="input-group mb-3">
-                        <div class="input-group-prepend" id="btnRecherche">
-                            <span class="input-group-text" id="recherche">
+                        <div class="input-group-prepend cursor-pointer" id="rechercheButton">
+                            <span class="input-group-text">
                                 <i class="fa fa-search"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Rechercher" aria-describedby="recherche">
+                        <input type="text" class="form-control" placeholder="Rechercher" aria-describedby="recherche" id="rechercheInput">
                     </div>
                     <div class="d-flex justify-content-between">
                         <div class="form-group">
                             <!-- <label for="filtre">Filtre :</label> -->
-                            <select class="form-control" id="filtre">
+                            <select class="form-control" id="filtre" disabled>
                                 <option>Tout</option>
                                 <option>Auteur</option>
                                 <option>Série</option>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group">
                             <!-- <label for="tri">Trier par :</label> -->
-                            <select class="form-control" id="tri">
+                            <select class="form-control" id="tri" disabled>
                                 <option>Ordre alphabétique</option>
                                 <option>Prix croissant</option>
                                 <option>Prix décroissant</option>
@@ -106,9 +106,9 @@
                 </form>
 
                 <!-- Liste BD -->
-                <div class="row px-2 overflow-auto" id="listeBD">
+                <div class="row px-2 overflow-auto" id="listeBDRecherche">
 
-                    <div class="col-lg-6 mb-3 px-2">
+                    <!-- <div class="col-lg-6 mb-3 px-2">
                         <div class="card h-100">
                             <div class="row no-gutters">
                                 <div class="col-4 d-flex align-items-center">
@@ -129,183 +129,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 px-2">
-                        <div class="card h-100">
-                            <div class="row no-gutters">
-                                <div class="col-4 d-flex align-items-center">
-                                    <img src="images/albums/Spirou et Fantasio-00-Coeurs dacier.jpg"
-                                        class="card-img rounded" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                        <div>
-                                            <h1 class="card-title h5">Spirou, tome 0, Coeurs d'acier</h1>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        </div>
-                                        <p class="badge badge-success">En stock</p>
-                                        <div class="row d-flex align-items-center">
-                                            <p class="col-12 mb-0">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 px-2">
-                        <div class="card h-100">
-                            <div class="row no-gutters">
-                                <div class="col-4 d-flex align-items-center">
-                                    <img src="images/albums/Spirou et Fantasio-00-Coeurs dacier.jpg"
-                                        class="card-img rounded" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                        <div>
-                                            <h1 class="card-title h5">Spirou, tome 0, Coeurs d'acier</h1>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        </div>
-                                        <p class="badge badge-success">En stock</p>
-                                        <div class="row d-flex align-items-center">
-                                            <p class="col-12 mb-0">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 px-2">
-                        <div class="card h-100">
-                            <div class="row no-gutters">
-                                <div class="col-4 d-flex align-items-center">
-                                    <img src="images/albums/Spirou et Fantasio-00-Coeurs dacier.jpg"
-                                        class="card-img rounded" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                        <div>
-                                            <h1 class="card-title h5">Spirou, tome 0, Coeurs d'acier</h1>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        </div>
-                                        <p class="badge badge-success">En stock</p>
-                                        <div class="row d-flex align-items-center">
-                                            <p class="col-12 mb-0">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 px-2">
-                        <div class="card h-100">
-                            <div class="row no-gutters">
-                                <div class="col-4 d-flex align-items-center">
-                                    <img src="images/albums/Astérix-03-Astérix et les Goths.jpg"
-                                        class="card-img rounded" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                        <div>
-                                            <h1 class="card-title h5">Spirou, tome 0, Coeurs d'acier</h1>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        </div>
-                                        <p class="badge badge-success">En stock</p>
-                                        <div class="row d-flex align-items-center">
-                                            <p class="col-12 mb-0">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 px-2">
-                        <div class="card h-100">
-                            <div class="row no-gutters">
-                                <div class="col-4 d-flex align-items-center">
-                                    <img src="images/albums/Spirou et Fantasio-00-Coeurs dacier.jpg"
-                                        class="card-img rounded" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                        <div>
-                                            <h1 class="card-title h5">Spirou, tome 0, Coeurs d'acier</h1>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        </div>
-                                        <p class="badge badge-success">En stock</p>
-                                        <div class="row d-flex align-items-center">
-                                            <p class="col-12 mb-0">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 px-2">
-                        <div class="card h-100">
-                            <div class="row no-gutters">
-                                <div class="col-4 d-flex align-items-center">
-                                    <img src="images/albums/Spirou et Fantasio-00-Coeurs dacier.jpg"
-                                        class="card-img rounded" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                        <div>
-                                            <h1 class="card-title h5">Spirou, tome 0, Coeurs d'acier</h1>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        </div>
-                                        <p class="badge badge-success">En stock</p>
-                                        <div class="row d-flex align-items-center">
-                                            <p class="col-12 mb-0">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 px-2">
-                        <div class="card h-100">
-                            <div class="row no-gutters">
-                                <div class="col-4 d-flex align-items-center">
-                                    <img src="images/albums/Spirou et Fantasio-00-Coeurs dacier.jpg"
-                                        class="card-img rounded" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                        <div>
-                                            <h1 class="card-title h5">Spirou, tome 0, Coeurs d'acier</h1>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        </div>
-                                        <p class="badge badge-success">En stock</p>
-                                        <div class="row d-flex align-items-center">
-                                            <p class="col-12 mb-0">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mb-3 px-2">
-                        <div class="card h-100">
-                            <div class="row no-gutters">
-                                <div class="col-4 d-flex align-items-center">
-                                    <img src="images/albums/Spirou et Fantasio-00-Coeurs dacier.jpg"
-                                        class="card-img rounded" alt="">
-                                </div>
-                                <div class="col-8">
-                                    <div class="card-body d-flex flex-column justify-content-between align-items-start">
-                                        <div>
-                                            <h1 class="card-title h5">Spirou, tome 0, Coeurs d'acier</h1>
-                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        </div>
-                                        <p class="badge badge-success">En stock</p>
-                                        <div class="row d-flex align-items-center">
-                                            <p class="col-12 mb-0">12,99 €</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> -->
+                    
                 </div>
 
             </article>

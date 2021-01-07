@@ -18,7 +18,7 @@ $(document).ready(function () {
 
     // Affichage des BD du panier simplifié
     $('.liste-BD-panier-simplifie').empty();
-
+    
 });
 
 // Génération de la div pour une BD

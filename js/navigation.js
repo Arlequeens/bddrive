@@ -50,6 +50,13 @@ $(document).ready(function () {
         document.location.href = "toutesLesBD.html";
     });
 
+    // Abbonement pour le bouton recherche du menu catalogue
+    $("#rechercheButtonCatalogue").click(function () {
+        recherche = $("#rechercheInputCatalogue").val();
+        sessionStorage.setItem("recherche", recherche);
+        $(location).attr('href',"recherche.html");
+    });
+
 });
 
 function goBack() {
