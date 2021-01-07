@@ -7,3 +7,4 @@ historique.set("5", { idSerie: "13" });
 historique.set("6", { idSerie: "16" });
 historique.set("7", { idSerie: "17" });
 historique.set("8", { idSerie: "18" });
+historique.set("9", { idSerie: "57" });
