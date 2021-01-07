@@ -135,13 +135,16 @@ function majPanier () {
 
                     // Supprimer l'affichage dans le panier de l'article suprrimé
                     $(this).parentsUntil(".card").parent().remove();
-                    // Si panier devient vide, afficher le message
-                    if(localStorage.getItem('panierBD') == "")
-                        $('#liste-BD-panier').append('<p>Votre panier est vide</p>');
 
                     // Mise à jour des information globale du panier
                     $("#prixTotal").html(calculTotalPanier().toFixed(2) + "€");
                     $("#nbreArticles").html(calculNbreArticleTotal() + " article(s)");
+
+                    // Si panier devient vide, afficher le message
+                    if(localStorage.getItem('panierBD') == "") {
+                        $('#liste-BD-panier').append('<p>Votre panier est vide</p>');
+                        $("#nbreArticles").html("0 article");
+                    }
                 });
             })(idAlbum);
 
