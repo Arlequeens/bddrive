@@ -191,10 +191,38 @@ function setArticleNbrePanier(idArticle, nbArticle) {
     majPanierLocal(tabPanier);
 }
 
-function calculTotalPanier() {
+function deleteArticlePanier(idArticle) {
+    var newTabPanier = [];
+    var panierLocal = localStorage.getItem('panierBD');
+    var tabPanier = toTabPanierLocal(panierLocal);
+    for (i in tabPanier) {
+        if (tabPanier[i][0] !== idArticle.toString()) {
+            newTabPanier.push(tabPanier[i]);
+        }
+    }
+    majPanierLocal(newTabPanier);
+}
 
+function calculTotalPanier() {
+    var totalPanier = 0;
+    var panierLocal = localStorage.getItem('panierBD');
+    var tabPanier = toTabPanierLocal(panierLocal);
+    for (i in tabPanier) {
+        totalPanier += calculTotalPrixArticle(tabPanier[i][0], parseInt(tabPanier[i][1]));
+    }
+    return totalPanier;
+}
+
+function calculTotalPrixArticle(idAlbum, nbArticle) {
+    return parseFloat(albums.get(idAlbum).prix) * nbArticle;
 }
 
 function calculNbreArticleTotal() {
-    
+    var nbreArticleTotal = 0;
+    var panierLocal = localStorage.getItem('panierBD');
+    var tabPanier = toTabPanierLocal(panierLocal);
+    for (i in tabPanier) {
+        nbreArticleTotal += parseInt(tabPanier[i][1]);
+    }
+    return nbreArticleTotal;
 }

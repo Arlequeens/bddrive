@@ -5,7 +5,7 @@ $(document).ready(function () {
     var album = albums.get(idAlbum);
     console.log(album);
     var auteur = auteurs.get(album.idAuteur);
-    var serie = auteurs.get(album.idSerie);
+    var serie = series.get(album.idSerie);
 
     $("#titreAlbum").html(album.titre);
     $("#auteurAlbum").html(auteur.nom);
@@ -55,7 +55,7 @@ $(document).ready(function () {
             panierLocal = genereValeurPanierLocal(tabPanier);
             localStorage.setItem('panierBD',panierLocal);
         }
-        affichePanier();
+        majPanier();
     });
 
 });

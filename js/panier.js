@@ -1,7 +1,9 @@
 $(document).ready(function () {
 
-    affichePanier();
+    // Afficher et abonner les évenement au panier et panier simplifié
+    majPanier();
 
+    // Abonner évenement pour la validation de la commande
     $("#btnValidationCommande").click(function () {
         var connected = sessionStorage.getItem("userConnected");
         if(connected != null && connected == "1") {
@@ -56,8 +58,9 @@ function cloneArticlePanier (album, nbreArticle) {
             +'</div>';
 }
 
-// Affiche les articles du panier simplifié et du Panier
-function affichePanier () {
+// Afficher et abonner les évenement au panier et panier simplifié
+function majPanier () {
+
     var panierLocal = localStorage.getItem('panierBD');
     var tabPanier = [];
     if (panierLocal !== null) {
@@ -84,13 +87,69 @@ function affichePanier () {
 
             // Affiche l'album dans le panier
             $('#liste-BD-panier').append(cloneArticlePanier(album, nbreArticle));
+
             // Abbonement à un évènement pour chaque image de BD du panier
             (function(cle) {
                 $('#liste-BD-panier').children().last().children().children().first().click(function() {
-                        $(location).attr('href',"article.html");
+                    $(location).attr('href',"article.html");
 
-                        // Enregistrement de la BD choisi dans le session storage
-                        sessionStorage.setItem("idBD", cle);
+                    // Enregistrement de la BD choisi dans le session storage
+                    sessionStorage.setItem("idBD", cle);
+                });
+            })(idAlbum);
+
+            // Abbonement à un évènement pour augmenter le nombre d'article pour un album
+            (function(cle) {
+                $('#liste-BD-panier').children().last().find('.plus-article').click(function () {
+                    var nbArticle = parseInt(getArticleNbrePanier(cle));
+                    if(nbArticle < 9) {
+                        nbArticle +=1;
+                        setArticleNbrePanier(cle, nbArticle);
+                        
+                        // Mise à jour de l'affichage des informations du panier pour l'article
+                        $(this).prev().attr("placeholder", nbArticle);
+                        $(this).parent().parent().prev().html(calculTotalPrixArticle(cle,nbArticle).toFixed(2));
+
+                        // Mise à jour des information globale du panier
+                        $("#prixTotal").html(calculTotalPanier().toFixed(2) + "€");
+                        $("#nbreArticles").html(calculNbreArticleTotal() + " article(s)");
+                    }
+                });
+            })(idAlbum);
+
+            // Abbonement à un évènement pour diminuer le nombre d'article pour un album
+            (function(cle) {
+                $('#liste-BD-panier').children().last().find('.moins-article').click(function () {
+                    var nbArticle = parseInt(getArticleNbrePanier(cle));
+                    if(nbArticle > 1) {
+                        nbArticle -=1;
+                        setArticleNbrePanier(cle, nbArticle);
+                        
+                        // Mise à jour de l'affichage des informations du panier pour l'article
+                        $(this).next().attr("placeholder", nbArticle);
+                        $(this).parent().parent().prev().html(calculTotalPrixArticle(cle,nbArticle).toFixed(2));
+
+                        // Mise à jour des information globale du panier
+                        $("#prixTotal").html(calculTotalPanier().toFixed(2) + "€");
+                        $("#nbreArticles").html(calculNbreArticleTotal() + " article(s)");
+                    }
+                });
+            })(idAlbum);
+
+            // Abbonement à un évènement pour supprimer l'article du panier
+            (function(cle) {
+                $('#liste-BD-panier').children().last().find('.suppr-article').click(function () {
+                    deleteArticlePanier(cle);
+
+                    // Supprimer l'affichage dans le panier de l'article suprrimé
+                    $(this).parentsUntil(".card").parent().remove();
+                    // Si panier devient vide, afficher le message
+                    if(localStorage.getItem('panierBD') == "")
+                        $('#liste-BD-panier').append('<p>Votre panier est vide</p>');
+
+                    // Mise à jour des information globale du panier
+                    $("#prixTotal").html(calculTotalPanier().toFixed(2) + "€");
+                    $("#nbreArticles").html(calculNbreArticleTotal() + " article(s)");
                 });
             })(idAlbum);
 
@@ -99,38 +158,20 @@ function affichePanier () {
             // Abbonement à un évènement pour chaque image de BD du panier simplifié
             (function(cle) {
                 $('.liste-BD-panier-simplifie').children().last().children().children().first().click(function() {
-                        $(location).attr('href',"article.html");
+                    $(location).attr('href',"article.html");
 
-                        // Enregistrement de la BD choisi dans le session storage
-                        sessionStorage.setItem("idBD", cle);
+                    // Enregistrement de la BD choisi dans le session storage
+                    sessionStorage.setItem("idBD", cle);
                 });
             })(idAlbum);
-
-            // Abonnement Bouton ajout article de l'album
-            // $(".plus-article").click(function () {
-
-            //     (function (id, elem) {
-            //         var nbArticle = parseInt(getArticleNbrePanier(id));
-            //         if(nbArticle < 99) {
-            //             nbArticle +=1;
-            //             setArticleNbrePanier(id, nbArticle);
-                        
-            //             // Mise à jour de l'affichage
-            //             elem.prev().attr("placeholder", nbArticle);
-            //             // maj prix dans div article
-            //             // maj PrixTotal page panier
-            //             // maj NbreArticleTotal page panier
-            //         }
-            //     })(idAlbum, $(this));
-            // });
         }
         $("#prixTotal").html(totalPrix.toFixed(2) + "€");
         $("#nbreArticles").html(nbreArticleTotal + " article(s)");
     }
     else {
-        $("#prixTotal").empty();
+        // $("#prixTotal").empty();
         $("#nbreArticles").html("0 article");
         $('#liste-BD-panier').append('<p>Votre panier est vide</p>');
-        $('.liste-BD-panier-simplifie').append('<p class="font-weight-bold mb-3 ml-3">Votre panier est vide</p>');
+        $('.liste-BD-panier-simplifie').append('<p class="mb-3 ml-3">Votre panier est vide</p>');
     }
 }

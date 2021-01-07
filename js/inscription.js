@@ -70,8 +70,3 @@ function verifCompteExistant(mail) {
     }
     return false;
 }
-
-
-
-//rediriger vers une autre page
-//window.location = "panier.html";
