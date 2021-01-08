@@ -26,3 +26,7 @@
 #tuiles, #btnToutesBD, #btnValidationCommande span{
     font-family: 'Bangers', serif;
 }
+
+#tuiles .card, #btnToutesBD {
+    background-color: #e9ecef;
+}
