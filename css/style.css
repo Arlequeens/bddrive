@@ -23,7 +23,7 @@
     cursor: pointer;
 }
 
-#tuiles, #btnToutesBD, #btnValidationCommande span, #btnInscription, #btnConnexion {
+#tuiles, #btnToutesBD, #btnValidationCommande span, #btnInscription span, #btnConnexion span{
     font-family: 'Bangers', serif;
 }
 

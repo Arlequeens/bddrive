@@ -1,13 +1,14 @@
 $(document).ready(function () {
 
-    var validerInscription = document.getElementById('btnInscription');
-    validerInscription.addEventListener('click', function () {
+    
+
+    $('#btnInscription').click(function () {
 
         var nom = document.getElementById('nom').value;
         var prenom = document.getElementById('prenom').value;
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
-        
+
         if(validateSaisie(nom, prenom, email, password)) {
             var idNouveauCompte = comptes.size + 1;
             comptes.set(idNouveauCompte.toString(), { login: email , mdp: password});
@@ -15,6 +16,22 @@ $(document).ready(function () {
             window.location = "connexion.html";
         }
 
+    });
+
+    $("#nom").keyup(function () {
+        document.getElementById('nomHelp').innerHTML = "";
+    });
+
+    $("#prenom").keyup(function () {
+        document.getElementById('prenomHelp').innerHTML = "";
+    });
+
+    $("#email").keyup(function () {
+        document.getElementById('emailHelp').innerHTML = "";
+    });
+
+    $("#password").keyup(function () {
+        document.getElementById('passwordHelp').innerHTML = "";
     });
 
 });
