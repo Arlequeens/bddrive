@@ -5,6 +5,7 @@ $(document).ready(function () {
     });
 });
 
+// Connexion de l'utilisateur
 function connexion() {
 
     var userConnected = false;
