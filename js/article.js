@@ -38,6 +38,7 @@ $(document).ready(function () {
         $('.liste-BD-vignette').append('<p class="ml-3">Pas d\'autre album disponible pour cette série</p>');
 
 
+    // Abbonement évenement ajout au panier
     $("#btnAjoutPanier").click(function () {
         
         var panierLocal = localStorage.getItem('panierBD');
@@ -58,7 +59,13 @@ $(document).ready(function () {
             panierLocal = genereValeurPanierLocal(tabPanier);
             localStorage.setItem('panierBD',panierLocal);
         }
+        // Met à jour le panier simplifié
         majPanier();
+    });
+
+    $("#voirPlusSerie").click(function () {
+        sessionStorage.setItem("idSerie", album.idSerie);
+        $(location).attr('href',"serie.html");
     });
 
 });

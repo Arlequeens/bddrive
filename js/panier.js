@@ -89,11 +89,11 @@ function majPanier () {
             var nbreArticle = tabPanier[i][1];
 
             // Affiche l'album dans le panier
-            $('#liste-BD-panier').append(cloneArticlePanier(album, nbreArticle));
+            $('#liste-BD-panier').prepend(cloneArticlePanier(album, nbreArticle));
 
             // Abbonement à un évènement pour chaque image de BD du panier
             (function(cle) {
-                $('#liste-BD-panier').children().last().children().children().first().click(function() {
+                $('#liste-BD-panier').children().first().children().children().first().click(function() {
                     $(location).attr('href',"article.html");
 
                     // Enregistrement de la BD choisi dans le session storage
@@ -103,7 +103,7 @@ function majPanier () {
 
             // Abbonement à un évènement pour augmenter le nombre d'article pour un album
             (function(cle) {
-                $('#liste-BD-panier').children().last().find('.plus-article').click(function () {
+                $('#liste-BD-panier').children().first().find('.plus-article').click(function () {
                     var nbArticle = parseInt(getArticleNbrePanier(cle));
                     if(nbArticle < 9) {
                         nbArticle +=1;
@@ -122,7 +122,7 @@ function majPanier () {
 
             // Abbonement à un évènement pour diminuer le nombre d'article pour un album
             (function(cle) {
-                $('#liste-BD-panier').children().last().find('.moins-article').click(function () {
+                $('#liste-BD-panier').children().first().find('.moins-article').click(function () {
                     var nbArticle = parseInt(getArticleNbrePanier(cle));
                     if(nbArticle > 1) {
                         nbArticle -=1;
@@ -141,7 +141,7 @@ function majPanier () {
 
             // Abbonement à un évènement pour supprimer l'article du panier
             (function(cle) {
-                $('#liste-BD-panier').children().last().find('.suppr-article').click(function () {
+                $('#liste-BD-panier').children().first().find('.suppr-article').click(function () {
                     deleteArticlePanier(cle);
 
                     // Supprimer l'affichage dans le panier de l'article suprrimé
@@ -160,10 +160,10 @@ function majPanier () {
             })(idAlbum);
 
             // Affiche l'album dans le panier simplifie
-            $('.liste-BD-panier-simplifie').append(cloneAlbumPanierSimplifie(album));
+            $('.liste-BD-panier-simplifie').prepend(cloneAlbumPanierSimplifie(album));
             // Abbonement à un évènement pour chaque image de BD du panier simplifié
             (function(cle) {
-                $('.liste-BD-panier-simplifie').children().last().children().children().first().click(function() {
+                $('.liste-BD-panier-simplifie').children().first().children().children().first().click(function() {
                     $(location).attr('href',"article.html");
 
                     // Enregistrement de la BD choisi dans le session storage
