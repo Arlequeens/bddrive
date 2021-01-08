@@ -21,7 +21,7 @@ $(document).ready(function () {
             }
             else {
                 // Redirection vers la page de connexion
-                $(location).attr('href',"html/connexion.html");
+                $(location).attr('href',"connexion.html");
             }
         }
         else {
