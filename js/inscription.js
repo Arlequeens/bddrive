@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
-    var valider = document.getElementById('valider');
-    valider.addEventListener('click', function () {
+    var validerInscription = document.getElementById('btnInscription');
+    validerInscription.addEventListener('click', function () {
 
         var nom = document.getElementById('nom').value;
         var prenom = document.getElementById('prenom').value;
