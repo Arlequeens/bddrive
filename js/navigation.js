@@ -1,22 +1,21 @@
 $(document).ready(function () {
 
     // Si connecté, affichage du login
+    var userConnected = sessionStorage.getItem("userConnected");
     var login = sessionStorage.getItem("loginPOW");
-    if(login != null)
+    if(login != null && userConnected=="1")
     {
         $("#navSeConnecter span").html(login);
+        $("#userDisconnect").removeClass("d-none");
+        $("#navSeConnecter").addClass("active");
+        $("#spanConnexion").addClass("text-muted");
+        $("#logoConnexion").addClass("text-muted");
     }
 
-    // Evènements navBar
-    $(".nav-item").on("click", function(){
-        updateNavBar($(this));
+    // Evenement deconnexion
+    $("#userDisconnect").click(function () {
+        deconnexion();
     });
-
-    // Rendre actif le menu selectionné
-    function updateNavBar(navElement) {
-        navElement.addClass("active");
-        navElement.siblings().removeClass("active");
-    }
 
     // Abonnement aux évènements pour les boutons de la barre de navigation
     $("#navSelections").click(function () {
@@ -32,13 +31,14 @@ $(document).ready(function () {
     });
 
     // Si non connecter, abonnement du bouton se connecté
-    if(login == null)
+    if(login == null || userConnected == "0")
     {
         $("#navSeConnecter").click(function () {
             document.location.href = "connexion.html";
         });
     }
 
+    // Abonnement évènement pour le logo
     $(".navbar-brand").click(function () {
         document.location.href = "home.html";
     });
@@ -72,4 +72,10 @@ $(document).ready(function () {
 
 function goBack() {
     window.history.back();
+}
+
+function deconnexion() {
+    sessionStorage.setItem("userConnected", "0");
+    sessionStorage.setItem("loginPOW", "");
+    document.location.href = "home.html";
 }

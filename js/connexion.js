@@ -1,12 +1,11 @@
 $(document).ready(function () {
 
     $("#btnConnexion").click(function () {
-        loginEtMdp();
+        connexion();
     });
-    
 });
 
-function loginEtMdp() {
+function connexion() {
 
     var userConnected = false;
     var loginSaisi = document.getElementById("email").value;

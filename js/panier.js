@@ -6,15 +6,26 @@ $(document).ready(function () {
     // Abonner évenement pour la validation de la commande
     $("#btnValidationCommande").click(function () {
         var connected = sessionStorage.getItem("userConnected");
-        if(connected != null && connected == "1") {
-            // Message de confirmation
-            alert("Votre commande a bien été prise en compte");
+        var panierLocal = localStorage.getItem('panierBD');
+        if (panierLocal != null && panierLocal != "") {
+            if(connected != null && connected == "1") {
 
-            // Remise à zero du panier
-            localStorage.setItem('panierBD', "");
+                // Remise à zero du panier
+                localStorage.setItem('panierBD', "");
 
-            // Redirection vers la page d'accueil
-            $(location).attr('href',"home.html");
+                // Message de confirmation
+                alert("Votre commande a bien été prise en compte");
+
+                // Redirection vers la page d'accueil
+                $(location).attr('href',"index.html");
+            }
+            else {
+                // Redirection vers la page de connexion
+                $(location).attr('href',"html/connexion.html");
+            }
+        }
+        else {
+            alert("Votre panier est vide");
         }
         
     });
@@ -83,7 +94,7 @@ function majPanier () {
             // Abbonement à un évènement pour chaque image de BD du panier
             (function(cle) {
                 $('#liste-BD-panier').children().last().children().children().first().click(function() {
-                    $(location).attr('href',"article.html");
+                    $(location).attr('href',"html/article.html");
 
                     // Enregistrement de la BD choisi dans le session storage
                     sessionStorage.setItem("idBD", cle);
@@ -153,7 +164,7 @@ function majPanier () {
             // Abbonement à un évènement pour chaque image de BD du panier simplifié
             (function(cle) {
                 $('.liste-BD-panier-simplifie').children().last().children().children().first().click(function() {
-                    $(location).attr('href',"article.html");
+                    $(location).attr('href',"html/article.html");
 
                     // Enregistrement de la BD choisi dans le session storage
                     sessionStorage.setItem("idBD", cle);
