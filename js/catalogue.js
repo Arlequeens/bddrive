@@ -55,6 +55,8 @@ function cloneAlbum(album) {
             +'</div>';
 }
 
+// Génération de la div pour une BD dans une div horizontale
+// IN: album
 function cloneAlbumVignette (album) {
     var titre = album.titre;
     var auteur = auteurs.get(album.idAuteur).nom;
@@ -71,6 +73,8 @@ function cloneAlbumVignette (album) {
             +'</div>';
 }
 
+// Génération de la div pour une BD du panier simplifié
+// IN: album
 function cloneAlbumPanierSimplifie (album) {
     var titre = album.titre;
     var auteur = auteurs.get(album.idAuteur).nom;

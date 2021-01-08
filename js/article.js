@@ -33,7 +33,7 @@ $(document).ready(function () {
             })(idAlbm);
         }
     }
-    // Si aucun album de la même série n'existe pas, affiche un message
+    // Si aucun album de la même série existe, affiche un message
     if(!albumMemeSerieExist)
         $('.liste-BD-vignette').append('<p class="ml-3">Pas d\'autre album disponible pour cette série</p>');
 
