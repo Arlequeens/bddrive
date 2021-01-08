@@ -74,6 +74,7 @@ function goBack() {
     window.history.back();
 }
 
+// Deconnexion de l'utilisateur
 function deconnexion() {
     sessionStorage.setItem("userConnected", "0");
     sessionStorage.setItem("loginPOW", "");

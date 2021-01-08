@@ -124,6 +124,7 @@ function sourceImageMini(album) {
 
 ///// PANIER ///////////////////////////
 
+// Transforme le panier en tableau
 function toTabPanierLocal(panierLocal) {
 
     var tabPanier = [];
@@ -142,6 +143,7 @@ function majPanierLocal(tabPanier) {
     localStorage.setItem('panierBD',panierLocal);
 }
 
+// Génère la valeur de local storage "panierBD"
 function genereValeurPanierLocal(tabPanier) {
     var pairs = [];
     if (tabPanier.lenght !== 0) {
@@ -152,6 +154,7 @@ function genereValeurPanierLocal(tabPanier) {
     return pairs.join(',');
 }
 
+// Ajout d'un album au panier
 function ajoutPanier(idAlbum, tabPanier) {
     
     var alreadyExist = false;
@@ -171,6 +174,7 @@ function ajoutPanier(idAlbum, tabPanier) {
     }
 }
 
+// Get le nombre d'article pour un article
 function getArticleNbrePanier(idArticle) {
     var panierLocal = localStorage.getItem('panierBD');
     var tabPanier = toTabPanierLocal(panierLocal);
@@ -181,6 +185,7 @@ function getArticleNbrePanier(idArticle) {
     }
 }
 
+// Set le nombre d'article pour un article
 function setArticleNbrePanier(idArticle, nbArticle) {
     var panierLocal = localStorage.getItem('panierBD');
     var tabPanier = toTabPanierLocal(panierLocal);
@@ -193,6 +198,7 @@ function setArticleNbrePanier(idArticle, nbArticle) {
     majPanierLocal(tabPanier);
 }
 
+// Supprime un article du panier
 function deleteArticlePanier(idArticle) {
     var newTabPanier = [];
     var panierLocal = localStorage.getItem('panierBD');
@@ -205,6 +211,7 @@ function deleteArticlePanier(idArticle) {
     majPanierLocal(newTabPanier);
 }
 
+// Calcul le total du panier
 function calculTotalPanier() {
     var totalPanier = 0;
     var panierLocal = localStorage.getItem('panierBD');
@@ -215,10 +222,12 @@ function calculTotalPanier() {
     return totalPanier;
 }
 
+// Calcul le total du prix d'un article avec son nombre
 function calculTotalPrixArticle(idAlbum, nbArticle) {
     return parseFloat(albums.get(idAlbum).prix) * nbArticle;
 }
 
+// Calcul le nombre total d'articles
 function calculNbreArticleTotal() {
     var nbreArticleTotal = 0;
     var panierLocal = localStorage.getItem('panierBD');
