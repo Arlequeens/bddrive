@@ -75,7 +75,7 @@
             </aside>
 
             <!-- Contenu principal -->
-            <article class="col-lg-9 d-flex flex-column h-100 ml-lg-3 overflow-auto">
+            <article class="col-lg-9 d-flex flex-column h-100 ml-lg-3">
 
                 <!-- Bouton retour -->
                 <div onclick="goBack()" class="d-flex align-items-center my-2 cursor-pointer">
@@ -83,54 +83,56 @@
                     <span class="ml-1">Retour</span>
                 </div>
 
-                <div class="row no-gutters mb-3">
+                <div class="overflow-auto">
+                    <div class="row no-gutters mb-3">
 
-                    <!--Ajout image-->
-                    <div class="col-lg-6 pr-lg-2">
-                        <img class="img-fluid rounded" id="imageAlbum">
-                    </div>
-
-                    <div class="col-lg-6 pl-lg-2 d-flex flex-column justify-content-between">
-
-                        <!-- Titre et auteur -->
-                        <div>
-                            <h1 id="titreAlbum"></h1>
-                            <p class="text-muted mb-0">écrit par <span class="text-body" id="auteurAlbum"></span></p>
-                            <p class="text-muted mb-0">série <span class="text-body" id="serieAlbum"></span></p>
+                        <!--Ajout image-->
+                        <div class="col-lg-5 pr-lg-2">
+                            <img class="img-fluid rounded" id="imageAlbum">
                         </div>
-
-                        <!-- Voir le résumé -->
-                        <!-- <div class="my-3">
-                            <button type="button" class="offset-3 col-6 btn btn-outline-dark">Voir le résumé</button>
-                        </div> -->
-
-                        <!-- Prix et ajout au panier -->
-                        <div>
-                            <div class="d-flex justify-content-end">
-                                <p class="badge badge-success mb-1">En stock</p>
+    
+                        <div class="col-lg-7 pl-lg-2 d-flex flex-column justify-content-between">
+    
+                            <!-- Titre et auteur -->
+                            <div>
+                                <h1 id="titreAlbum"></h1>
+                                <p class="text-muted mb-0">écrit par <span class="text-body" id="auteurAlbum"></span></p>
+                                <p class="text-muted mb-0">série <span class="text-body" id="serieAlbum"></span></p>
                             </div>
-                            <p class="text-right" id="prixAlbum"><strong></strong></p>
-                            <button type="button" class="col btn btn-success" id="btnAjoutPanier">Ajouter au panier</button>
+    
+                            <!-- Voir le résumé -->
+                            <!-- <div class="my-3">
+                                <button type="button" class="offset-3 col-6 btn btn-outline-dark">Voir le résumé</button>
+                            </div> -->
+    
+                            <!-- Prix et ajout au panier -->
+                            <div>
+                                <div class="d-flex justify-content-end">
+                                    <p class="badge badge-success mb-1">En stock</p>
+                                </div>
+                                <p class="text-right" id="prixAlbum"><strong></strong></p>
+                                <button type="button" class="col btn btn-success" id="btnAjoutPanier">Ajouter au panier</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Albums de la même serie -->
-                <div class="card mb-3">
-                    <div class="card-header d-flex justify-content-between align-items-center bg-transparent pb-0">
-                        <h1 class="h6 text-uppercase font-weight-normal mb-0">Albums de la même série</h1>
-                        <a href="#">Plus</a>
-                    </div>
-                    <div class="card-body pt-3 overflow-auto pb-0">
-                        <div class="row flex-nowrap liste-BD-vignette">
-                            <!-- <div class="card col-3 col-lg-2 border-0 px-1 px-lg-2">
-                                <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
-                                <div class="card-body p-0">
-                                    <h1 class="card-title h5">Titre</h2>
-                                        <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
-                                        <p class="card-text">12,99 €</p>
-                                </div>
-                            </div> -->
+    
+                    <!-- Albums de la même serie -->
+                    <div class="card mb-3">
+                        <div class="card-header d-flex justify-content-between align-items-center bg-transparent pb-0">
+                            <h1 class="h6 text-uppercase font-weight-normal mb-0">Albums de la même série</h1>
+                            <a href="#">Plus</a>
+                        </div>
+                        <div class="card-body pt-3 overflow-auto pb-0">
+                            <div class="row flex-nowrap liste-BD-vignette">
+                                <!-- <div class="card col-3 col-lg-2 border-0 px-1 px-lg-2">
+                                    <img src="images/albums/Arkezone-01-Le dôme.jpg" class="card-img rounded" alt="">
+                                    <div class="card-body p-0">
+                                        <h1 class="card-title h5">Titre</h2>
+                                            <h2 class="card-subtitle mb-2 text-muted h6">Auteur</h2>
+                                            <p class="card-text">12,99 €</p>
+                                    </div>
+                                </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
