@@ -15,9 +15,14 @@
 }
 
 .display-4 {
+    font-family: 'Bangers', serif;
     font-size: 2rem;
 }
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+#tuiles, #btnToutesBD, #btnValidationCommande span{
+    font-family: 'Bangers', serif;
 }

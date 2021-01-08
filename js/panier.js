@@ -14,10 +14,13 @@ $(document).ready(function () {
                 localStorage.setItem('panierBD', "");
 
                 // Message de confirmation
-                alert("Votre commande a bien été prise en compte");
+                $("#validationCommandeMessage").html("Votre commande a bien été prise en compte !");
+                $("#validationCommandeModal").modal('show');
 
-                // Redirection vers la page d'accueil
-                $(location).attr('href',"home.html");
+                // Abonnement bouton fermer modal
+                $("#boutonFermerModal").click(function () {
+                    $(location).attr('href',"home.html");
+                });
             }
             else {
                 // Redirection vers la page de connexion
@@ -25,10 +28,11 @@ $(document).ready(function () {
             }
         }
         else {
-            alert("Votre panier est vide");
+            $("#validationCommandeMessage").html("Votre panier est vide");
+            $("#validationCommandeModal").modal('show');
         }
-        
     });
+
 });
 
 function cloneArticlePanier (album, nbreArticle) {
