@@ -17,7 +17,7 @@ $(document).ready(function () {
                 alert("Votre commande a bien été prise en compte");
 
                 // Redirection vers la page d'accueil
-                $(location).attr('href',"index.html");
+                $(location).attr('href',"home.html");
             }
             else {
                 // Redirection vers la page de connexion
@@ -94,7 +94,7 @@ function majPanier () {
             // Abbonement à un évènement pour chaque image de BD du panier
             (function(cle) {
                 $('#liste-BD-panier').children().last().children().children().first().click(function() {
-                    $(location).attr('href',"html/article.html");
+                    $(location).attr('href',"article.html");
 
                     // Enregistrement de la BD choisi dans le session storage
                     sessionStorage.setItem("idBD", cle);
@@ -164,7 +164,7 @@ function majPanier () {
             // Abbonement à un évènement pour chaque image de BD du panier simplifié
             (function(cle) {
                 $('.liste-BD-panier-simplifie').children().last().children().children().first().click(function() {
-                    $(location).attr('href',"html/article.html");
+                    $(location).attr('href',"article.html");
 
                     // Enregistrement de la BD choisi dans le session storage
                     sessionStorage.setItem("idBD", cle);
