@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    
-
     $('#btnInscription').click(function () {
 
         var nom = document.getElementById('nom').value;
@@ -15,7 +13,6 @@ $(document).ready(function () {
             console.log(comptes);
             window.location = "connexion.html";
         }
-
     });
 
     $("#nom").keyup(function () {
@@ -70,7 +67,6 @@ function validateSaisie(nom, prenom, email, password) {
         document.getElementById('passwordHelp').innerHTML = "Mot de passe invalide";
         saisiCorrect = false;
     }
-
     return saisiCorrect;
 }
 

@@ -20,7 +20,6 @@ $(document).ready(function () {
             }
         }
     }
-    
 });
 
 // Génération de la div pour une BD

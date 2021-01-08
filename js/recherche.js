@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+$(document).ready(function () {
 
     var recherche = "";
     recherche = sessionStorage.getItem("recherche");
